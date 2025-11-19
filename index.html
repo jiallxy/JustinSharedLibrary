@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub - Free library to share books</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">📚 BookHub</a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('upload')">Upload Book</a></li>
+                <li><a href="#" onclick="showSection('bookshelf')">My Bookshelf</a></li>
+            </ul>
+            <div class="user-info">
+                <span id="user-email">Sign up</span>
+                <button onclick="toggleAuth()" id="auth-btn">Log in</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <!-- 登录/注册区域 -->
+        <section id="auth-section" class="section">
+            <h2 class="section-title">Account Management</h2>
+            <div class="auth-form">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Input your E-mail">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Input Password">
+                </div>
+                <button class="btn btn-block" onclick="login()">Log in</button>
+                <button class="btn btn-block" onclick="register()" style="background: #28a745; margin-top: 0.5rem;">Sign up</button>
+            </div>
+        </section>
+
+        <!-- 首页 - 书籍列表 -->
+        <section id="home-section" class="section hidden">
+            <h2 class="section-title">All Books</h2>
+            <div id="books-list" class="books-grid">
+                <!-- 书籍卡片将通过JavaScript动态生成 -->
+            </div>
+        </section>
+
+        <!-- 上传书籍区域 -->
+        <section id="upload-section" class="section hidden">
+            <h2 class="section-title">Upload books</h2>
+            <div class="upload-area">
+                <h3>拖拽文件到此处或点击选择</h3>
+                <p>Supported format：EPUB, PDF, TXT, MOBI</p>
+                <div class="file-input">
+                    <input type="file" id="book-file" accept=".epub,.pdf,.txt,.mobi" onchange="handleFileSelect(event)">
+                </div>
+                <button class="btn" onclick="uploadBook()">Upload Books</button>
+            </div>
+            <div id="upload-status"></div>
+        </section>
+
+        <!-- 我的书架 -->
+        <section id="bookshelf-section" class="section hidden">
+            <h2 class="section-title">My bookshelf</h2>
+            <div id="bookshelf" class="bookshelf-grid">
+                <!-- 收藏的书籍将通过JavaScript动态生成 -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
